@@ -1,0 +1,57 @@
+{
+  "entreprise": "Atelier Boréal (PME fictive de services-conseils)",
+  "heuresBureau": { "debut": "09:00", "fin": "17:00" },
+  "utilisateurs": [
+    { "courriel": "camille.tremblay@atelierboreal.example", "nom": "Camille Tremblay", "role": "Directrice" },
+    { "courriel": "olivier.gagnon@atelierboreal.example", "nom": "Olivier Gagnon", "role": "Technicien principal" },
+    { "courriel": "sarah.bouchard@atelierboreal.example", "nom": "Sarah Bouchard", "role": "Responsable des finances" },
+    { "courriel": "mathieu.lavoie@atelierboreal.example", "nom": "Mathieu Lavoie", "role": "Développeur" },
+    { "courriel": "lea.fortin@atelierboreal.example", "nom": "Léa Fortin", "role": "Responsable des ressources humaines" }
+  ],
+  "evenements": [
+    { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Rencontre client Dubois", "debut": "2026-10-19T10:00", "fin": "2026-10-19T11:00" },
+    { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Comité de direction", "debut": "2026-10-20T13:00", "fin": "2026-10-20T14:30" },
+    { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Appel fournisseur", "debut": "2026-10-21T09:00", "fin": "2026-10-21T10:00" },
+    { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Révision des soumissions", "debut": "2026-10-22T15:00", "fin": "2026-10-22T16:00" },
+    { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Visite chez un client", "debut": "2026-10-23T09:00", "fin": "2026-10-23T12:00" },
+    { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Planification hebdomadaire", "debut": "2026-10-26T09:00", "fin": "2026-10-26T10:00" },
+    { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Rencontre client Gagné", "debut": "2026-10-27T13:00", "fin": "2026-10-27T15:00" },
+    { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Appel avec le comptable", "debut": "2026-10-29T10:00", "fin": "2026-10-29T11:00" },
+
+    { "proprietaire": "olivier.gagnon@atelierboreal.example", "titre": "Installation chez le client Roy", "debut": "2026-10-19T13:00", "fin": "2026-10-19T15:00" },
+    { "proprietaire": "olivier.gagnon@atelierboreal.example", "titre": "Soutien technique", "debut": "2026-10-20T09:00", "fin": "2026-10-20T10:30" },
+    { "proprietaire": "olivier.gagnon@atelierboreal.example", "titre": "Appel client Paquette", "debut": "2026-10-21T14:00", "fin": "2026-10-21T15:00" },
+    { "proprietaire": "olivier.gagnon@atelierboreal.example", "titre": "Déplacement chez le client Lemay", "debut": "2026-10-22T09:00", "fin": "2026-10-22T12:00" },
+    { "proprietaire": "olivier.gagnon@atelierboreal.example", "titre": "Dîner d'affaires", "debut": "2026-10-23T13:00", "fin": "2026-10-23T14:00" },
+    { "proprietaire": "olivier.gagnon@atelierboreal.example", "titre": "Soutien technique", "debut": "2026-10-26T13:00", "fin": "2026-10-26T14:00" },
+    { "proprietaire": "olivier.gagnon@atelierboreal.example", "titre": "Installation chez un client", "debut": "2026-10-28T09:00", "fin": "2026-10-28T12:00" },
+    { "proprietaire": "olivier.gagnon@atelierboreal.example", "titre": "Appel de suivi", "debut": "2026-10-30T14:00", "fin": "2026-10-30T15:00" },
+
+    { "proprietaire": "sarah.bouchard@atelierboreal.example", "titre": "Fermeture comptable", "debut": "2026-10-19T09:00", "fin": "2026-10-19T10:00" },
+    { "proprietaire": "sarah.bouchard@atelierboreal.example", "titre": "Rencontre à la banque", "debut": "2026-10-20T10:00", "fin": "2026-10-20T12:00" },
+    { "proprietaire": "sarah.bouchard@atelierboreal.example", "titre": "Traitement des paies", "debut": "2026-10-21T13:00", "fin": "2026-10-21T14:00" },
+    { "proprietaire": "sarah.bouchard@atelierboreal.example", "titre": "Appel client Lemay", "debut": "2026-10-22T10:00", "fin": "2026-10-22T11:00" },
+    { "proprietaire": "sarah.bouchard@atelierboreal.example", "titre": "Rapports mensuels", "debut": "2026-10-23T15:00", "fin": "2026-10-23T17:00" },
+    { "proprietaire": "sarah.bouchard@atelierboreal.example", "titre": "Paiements aux fournisseurs", "debut": "2026-10-26T10:00", "fin": "2026-10-26T11:00" },
+    { "proprietaire": "sarah.bouchard@atelierboreal.example", "titre": "Suivi du budget", "debut": "2026-10-27T09:00", "fin": "2026-10-27T10:00" },
+    { "proprietaire": "sarah.bouchard@atelierboreal.example", "titre": "Fin de mois", "debut": "2026-10-29T13:00", "fin": "2026-10-29T15:00" },
+
+    { "proprietaire": "mathieu.lavoie@atelierboreal.example", "titre": "Déploiement", "debut": "2026-10-19T15:00", "fin": "2026-10-19T16:30" },
+    { "proprietaire": "mathieu.lavoie@atelierboreal.example", "titre": "Développement du module de rapports", "debut": "2026-10-20T14:00", "fin": "2026-10-20T16:00" },
+    { "proprietaire": "mathieu.lavoie@atelierboreal.example", "titre": "Revue technique", "debut": "2026-10-21T10:00", "fin": "2026-10-21T11:30" },
+    { "proprietaire": "mathieu.lavoie@atelierboreal.example", "titre": "Rendez-vous personnel", "debut": "2026-10-22T13:00", "fin": "2026-10-22T14:00" },
+    { "proprietaire": "mathieu.lavoie@atelierboreal.example", "titre": "Maintenance des serveurs", "debut": "2026-10-23T10:00", "fin": "2026-10-23T11:00" },
+    { "proprietaire": "mathieu.lavoie@atelierboreal.example", "titre": "Revue technique", "debut": "2026-10-26T14:00", "fin": "2026-10-26T15:00" },
+    { "proprietaire": "mathieu.lavoie@atelierboreal.example", "titre": "Développement", "debut": "2026-10-27T10:00", "fin": "2026-10-27T12:00" },
+    { "proprietaire": "mathieu.lavoie@atelierboreal.example", "titre": "Maintenance des serveurs", "debut": "2026-10-30T09:00", "fin": "2026-10-30T10:00" },
+
+    { "proprietaire": "lea.fortin@atelierboreal.example", "titre": "Entrevue", "debut": "2026-10-19T11:00", "fin": "2026-10-19T12:00" },
+    { "proprietaire": "lea.fortin@atelierboreal.example", "titre": "Suivi du stagiaire", "debut": "2026-10-20T09:00", "fin": "2026-10-20T09:30" },
+    { "proprietaire": "lea.fortin@atelierboreal.example", "titre": "Formation", "debut": "2026-10-21T15:00", "fin": "2026-10-21T16:30" },
+    { "proprietaire": "lea.fortin@atelierboreal.example", "titre": "Entrevue", "debut": "2026-10-22T11:00", "fin": "2026-10-22T12:00" },
+    { "proprietaire": "lea.fortin@atelierboreal.example", "titre": "Congé", "debut": "2026-10-23T09:00", "fin": "2026-10-23T17:00" },
+    { "proprietaire": "lea.fortin@atelierboreal.example", "titre": "Suivi du stagiaire", "debut": "2026-10-26T11:00", "fin": "2026-10-26T12:00" },
+    { "proprietaire": "lea.fortin@atelierboreal.example", "titre": "Formation", "debut": "2026-10-28T13:00", "fin": "2026-10-28T14:30" },
+    { "proprietaire": "lea.fortin@atelierboreal.example", "titre": "Entrevue", "debut": "2026-10-29T09:00", "fin": "2026-10-29T10:00" }
+  ]
+}

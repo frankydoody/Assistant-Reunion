@@ -1,0 +1,17 @@
+{
+  "name": "inf5114-assistant-reunions",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Assistant IA de planification de réunions pour PME (projet INF 5114)",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "verifier-donnees": "tsx src/verifier-donnees.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}

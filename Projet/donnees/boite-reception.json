@@ -1,0 +1,185 @@
+{
+  "proprietaire": "camille.tremblay@atelierboreal.example",
+  "courriels": [
+    {
+      "id": "M01", "de": "olivier.gagnon@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T08:12", "objet": "Révision de la soumission Dubois",
+      "corps": "Bonjour Camille,\n\nPeux-tu planifier une rencontre de 30 minutes avec Sarah et moi cette semaine pour réviser la soumission Dubois avant de l'envoyer?\n\nMerci,\nOlivier",
+      "attendu": { "estReunion": true, "sujet": "Révision de la soumission Dubois", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "sarah.bouchard@atelierboreal.example"], "dureeMinutes": 30, "fenetre": { "debut": "2026-10-19T09:00", "fin": "2026-10-23T17:00" } }
+    },
+    {
+      "id": "M02", "de": "sarah.bouchard@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T08:40", "objet": "Point budget T4",
+      "corps": "Salut Camille,\n\nJ'aimerais qu'on se voie une heure, toi, Mathieu et moi, mardi ou mercredi, pour regarder le budget du quatrième trimestre.\n\nSarah",
+      "attendu": { "estReunion": true, "sujet": "Point budget T4", "participants": ["camille.tremblay@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "mathieu.lavoie@atelierboreal.example"], "dureeMinutes": 60, "fenetre": { "debut": "2026-10-20T09:00", "fin": "2026-10-21T17:00" } }
+    },
+    {
+      "id": "N01", "de": "comptabilite@fournitures-laurier.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T09:05", "objet": "Facture no 4821",
+      "corps": "Bonjour,\n\nVeuillez trouver ci-joint la facture no 4821 pour votre commande de fournitures de bureau. Le paiement est dû dans 30 jours.\n\nCordialement,\nFournitures Laurier",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M03", "de": "lea.fortin@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T09:30", "objet": "Accueil du nouveau stagiaire",
+      "corps": "Bonjour Camille,\n\nPour bien accueillir notre stagiaire, il faudrait une réunion de toute l'équipe, 45 minutes, d'ici vendredi.\n\nLéa",
+      "attendu": { "estReunion": true, "sujet": "Accueil du nouveau stagiaire", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "mathieu.lavoie@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 45, "fenetre": { "debut": "2026-10-19T09:00", "fin": "2026-10-23T17:00" } }
+    },
+    {
+      "id": "M04", "de": "mathieu.lavoie@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T10:15", "objet": "Bogue de facturation",
+      "corps": "Camille,\n\nJ'ai trouvé la cause du bogue de facturation. On peut se parler 15 minutes demain, juste toi et moi?\n\nMathieu",
+      "attendu": { "estReunion": true, "sujet": "Bogue de facturation", "participants": ["camille.tremblay@atelierboreal.example", "mathieu.lavoie@atelierboreal.example"], "dureeMinutes": 15, "fenetre": { "debut": "2026-10-20T09:00", "fin": "2026-10-20T17:00" } }
+    },
+    {
+      "id": "N02", "de": "infolettre@pme-quebec.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T11:00", "objet": "Infolettre d'octobre : 5 conseils pour votre trésorerie",
+      "corps": "Chers abonnés,\n\nCe mois-ci, découvrez nos cinq conseils pour améliorer la trésorerie de votre entreprise, ainsi qu'un portrait d'une PME de la Mauricie.\n\nBonne lecture!",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M05", "de": "olivier.gagnon@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T11:45", "objet": "Planification du déménagement des serveurs",
+      "corps": "Bonjour Camille,\n\nLe déménagement des serveurs approche. Il nous faut une rencontre de 2 heures avec Mathieu, Léa et moi la semaine prochaine pour tout planifier.\n\nOlivier",
+      "attendu": { "estReunion": true, "sujet": "Planification du déménagement des serveurs", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "mathieu.lavoie@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 120, "fenetre": { "debut": "2026-10-26T09:00", "fin": "2026-10-30T17:00" } }
+    },
+    {
+      "id": "N03", "de": "olivier.gagnon@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T13:20", "objet": "Compte rendu de la réunion de vendredi",
+      "corps": "Bonjour Camille,\n\nVoici le compte rendu de notre réunion de vendredi dernier avec le client Roy. Tout est noté, rien d'autre à faire de ton côté.\n\nOlivier",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M06", "de": "sarah.bouchard@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T14:02", "objet": "Rétroaction du client Lemay",
+      "corps": "Camille,\n\nLe client Lemay nous a envoyé ses commentaires. Il faudrait se rencontrer rapidement jeudi après-midi avec Olivier pour décider de la suite.\n\nSarah",
+      "attendu": { "estReunion": true, "sujet": "Rétroaction du client Lemay", "participants": ["camille.tremblay@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "olivier.gagnon@atelierboreal.example"], "dureeMinutes": null, "fenetre": { "debut": "2026-10-22T12:00", "fin": "2026-10-22T17:00" } }
+    },
+    {
+      "id": "N04", "de": "sarah.bouchard@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T15:10", "objet": "Document demandé",
+      "corps": "Bonjour Camille,\n\nVoici en pièce jointe l'état des résultats de septembre que tu m'avais demandé.\n\nBonne fin de journée,\nSarah",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M07", "de": "lea.fortin@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T15:48", "objet": "Formation sur l'outil de suivi",
+      "corps": "Bonjour Camille,\n\nJe suis prête à donner la formation sur le nouvel outil de suivi. Ça prend une heure et demie avec toute l'équipe, lundi ou mardi prochain.\n\nLéa",
+      "attendu": { "estReunion": true, "sujet": "Formation sur l'outil de suivi", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "mathieu.lavoie@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 90, "fenetre": { "debut": "2026-10-26T09:00", "fin": "2026-10-27T17:00" } }
+    },
+    {
+      "id": "M08", "de": "mathieu.lavoie@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T16:20", "objet": "Revue de code du module de rapports",
+      "corps": "Camille,\n\nJ'aimerais faire une revue de code du module de rapports : 30 minutes avec Léa et moi, mercredi.\n\nMathieu",
+      "attendu": { "estReunion": true, "sujet": "Revue de code du module de rapports", "participants": ["camille.tremblay@atelierboreal.example", "mathieu.lavoie@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 30, "fenetre": { "debut": "2026-10-21T09:00", "fin": "2026-10-21T17:00" } }
+    },
+    {
+      "id": "M09", "de": "olivier.gagnon@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-19T16:55", "objet": "Dossier Paquette",
+      "corps": "Salut,\n\nFaudrait qu'on se jase du dossier Paquette avec Sarah avant vendredi, une petite demi-heure suffirait.\n\nOli",
+      "attendu": { "estReunion": true, "sujet": "Dossier Paquette", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "sarah.bouchard@atelierboreal.example"], "dureeMinutes": 30, "fenetre": { "debut": "2026-10-20T09:00", "fin": "2026-10-22T17:00" } }
+    },
+    {
+      "id": "N05", "de": "ne-pas-repondre@portail-ti.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T07:30", "objet": "Votre mot de passe expire dans 5 jours",
+      "corps": "Bonjour,\n\nLe mot de passe de votre compte expirera dans 5 jours. Veuillez le modifier à partir du portail.\n\nCeci est un message automatique.",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M10", "de": "sarah.bouchard@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T08:25", "objet": "Préparation du salon des PME",
+      "corps": "Camille,\n\nRéserve-nous une heure avec Léa pour préparer le kiosque du salon des PME. N'importe quand cette semaine me va.\n\nSarah",
+      "attendu": { "estReunion": true, "sujet": "Préparation du salon des PME", "participants": ["camille.tremblay@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 60, "fenetre": { "debut": "2026-10-20T09:00", "fin": "2026-10-23T17:00" } }
+    },
+    {
+      "id": "N06", "de": "lea.fortin@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T09:10", "objet": "Absente vendredi",
+      "corps": "Bonjour Camille,\n\nPetit rappel que je serai en congé vendredi toute la journée. Je serai de retour lundi.\n\nLéa",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M11", "de": "lea.fortin@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T10:40", "objet": "Entrevue avec une candidate",
+      "corps": "Camille,\n\nJ'ai une candidate intéressante pour le poste de technicien. Peux-tu prévoir 45 minutes avec Olivier et moi, mercredi ou jeudi, pour qu'on prépare l'entrevue ensemble?\n\nLéa",
+      "attendu": { "estReunion": true, "sujet": "Préparation de l'entrevue avec une candidate", "participants": ["camille.tremblay@atelierboreal.example", "lea.fortin@atelierboreal.example", "olivier.gagnon@atelierboreal.example"], "dureeMinutes": 45, "fenetre": { "debut": "2026-10-21T09:00", "fin": "2026-10-22T17:00" } }
+    },
+    {
+      "id": "N07", "de": "julie.martel@client-externe.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T11:15", "objet": "Question sur vos tarifs",
+      "corps": "Bonjour,\n\nPourriez-vous me faire parvenir votre grille tarifaire pour un mandat d'accompagnement de trois mois?\n\nMerci,\nJulie Martel",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M12", "de": "mathieu.lavoie@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T13:05", "objet": "Migration des courriels",
+      "corps": "Bonjour Camille,\n\nAvant de migrer les courriels, je dois expliquer les étapes à tout le monde. Il faudrait une rencontre d'une heure avec toute l'équipe au début de la semaine prochaine, lundi ou mardi.\n\nMathieu",
+      "attendu": { "estReunion": true, "sujet": "Migration des courriels", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "mathieu.lavoie@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 60, "fenetre": { "debut": "2026-10-26T09:00", "fin": "2026-10-27T17:00" } }
+    },
+    {
+      "id": "M13", "de": "olivier.gagnon@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T14:30", "objet": "Suivi du projet Gagné",
+      "corps": "Camille,\n\nJe n'ai toujours pas de nouvelles du client Gagné. On devrait faire le point ensemble bientôt, trouve-nous un moment.\n\nOlivier",
+      "attendu": { "estReunion": true, "sujet": "Suivi du projet Gagné", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example"], "dureeMinutes": null, "fenetre": null }
+    },
+    {
+      "id": "N08", "de": "mathieu.lavoie@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T15:20", "objet": "Merci pour ce matin",
+      "corps": "Camille,\n\nMerci pour la rencontre de ce matin, c'était très clair. Je corrige le bogue aujourd'hui.\n\nMathieu",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M14", "de": "sarah.bouchard@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-20T16:10", "objet": "Re: Soumission Tremblay inc.",
+      "corps": "Camille,\n\nJ'ai refait les calculs de la soumission Tremblay inc. La marge passe à 18 % si on garde les licences, et à 24 % si on les retire. Le client veut une réponse lundi. Bref, il nous faut une rencontre de 30 minutes avec Mathieu d'ici jeudi pour trancher.\n\nSarah",
+      "attendu": { "estReunion": true, "sujet": "Soumission Tremblay inc.", "participants": ["camille.tremblay@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "mathieu.lavoie@atelierboreal.example"], "dureeMinutes": 30, "fenetre": { "debut": "2026-10-21T09:00", "fin": "2026-10-22T17:00" } }
+    },
+    {
+      "id": "N09", "de": "evenements@logiciels-nordik.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-21T08:00", "objet": "Webinaire gratuit jeudi à 14 h : automatisez votre facturation",
+      "corps": "Bonjour,\n\nInscrivez-vous à notre webinaire gratuit de jeudi à 14 h et découvrez comment automatiser votre facturation. Places limitées!\n\nL'équipe Logiciels Nordik",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M15", "de": "lea.fortin@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-21T08:35", "objet": "Bilan mensuel",
+      "corps": "Bonjour Camille,\n\nC'est le temps de notre bilan d'octobre : une heure, toi et moi, jeudi.\n\nLéa",
+      "attendu": { "estReunion": true, "sujet": "Bilan mensuel", "participants": ["camille.tremblay@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 60, "fenetre": { "debut": "2026-10-22T09:00", "fin": "2026-10-22T17:00" } }
+    },
+    {
+      "id": "M16", "de": "mathieu.lavoie@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-21T09:15", "objet": "Démo du prototype",
+      "corps": "Camille,\n\nLe prototype est prêt. J'aimerais le présenter 20 minutes à toute l'équipe jeudi ou vendredi.\n\nMathieu",
+      "attendu": { "estReunion": true, "sujet": "Démo du prototype", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "mathieu.lavoie@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 20, "fenetre": { "debut": "2026-10-22T09:00", "fin": "2026-10-23T17:00" } }
+    },
+    {
+      "id": "M17", "de": "olivier.gagnon@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-21T10:05", "objet": "URGENT - panne chez le client Roy",
+      "corps": "Camille,\n\nLe système du client Roy est en panne depuis ce matin. On doit se voir aujourd'hui avec Mathieu, 30 minutes, pour décider quoi faire.\n\nOlivier",
+      "attendu": { "estReunion": true, "sujet": "Panne chez le client Roy", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "mathieu.lavoie@atelierboreal.example"], "dureeMinutes": 30, "fenetre": { "debut": "2026-10-21T09:00", "fin": "2026-10-21T17:00" } }
+    },
+    {
+      "id": "N10", "de": "olivier.gagnon@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-21T11:30", "objet": "Réunion de vendredi annulée",
+      "corps": "Camille,\n\nLe client a réglé son problème lui-même, donc la réunion de vendredi n'est plus nécessaire. Pas besoin de la replanifier.\n\nOlivier",
+      "attendu": { "estReunion": false }
+    },
+    {
+      "id": "M18", "de": "sarah.bouchard@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-21T13:40", "objet": "Vacances des Fêtes",
+      "corps": "Bonjour Camille,\n\nIl faut planifier les vacances des Fêtes avec toute l'équipe : 30 minutes la semaine prochaine devraient suffire.\n\nSarah",
+      "attendu": { "estReunion": true, "sujet": "Planification des vacances des Fêtes", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "mathieu.lavoie@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": 30, "fenetre": { "debut": "2026-10-26T09:00", "fin": "2026-10-30T17:00" } }
+    },
+    {
+      "id": "M19", "de": "lea.fortin@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-21T14:25", "objet": "Nouveau processus d'embauche",
+      "corps": "Camille,\n\nEst-ce qu'on pourrait organiser une rencontre avec le reste de l'équipe pour parler du nouveau processus d'embauche?\n\nLéa",
+      "attendu": { "estReunion": true, "sujet": "Nouveau processus d'embauche", "participants": ["camille.tremblay@atelierboreal.example", "olivier.gagnon@atelierboreal.example", "sarah.bouchard@atelierboreal.example", "mathieu.lavoie@atelierboreal.example", "lea.fortin@atelierboreal.example"], "dureeMinutes": null, "fenetre": null }
+    },
+    {
+      "id": "M20", "de": "mathieu.lavoie@atelierboreal.example", "a": ["camille.tremblay@atelierboreal.example"],
+      "date": "2026-10-21T15:50", "objet": "Mentorat",
+      "corps": "Bonjour Camille,\n\nJe voudrais te rencontrer 45 minutes lundi prochain pour discuter de mon plan de développement professionnel.\n\nMathieu",
+      "attendu": { "estReunion": true, "sujet": "Mentorat", "participants": ["camille.tremblay@atelierboreal.example", "mathieu.lavoie@atelierboreal.example"], "dureeMinutes": 45, "fenetre": { "debut": "2026-10-26T09:00", "fin": "2026-10-26T17:00" } }
+    }
+  ]
+}

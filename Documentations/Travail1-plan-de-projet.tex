@@ -1,0 +1,207 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\setlist{itemsep=2pt, topsep=4pt}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\onehalfspacing
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small INF 5114 -- Plan de projet documenté}
+\fancyhead[R]{\small Francis Côté}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+% ---------- Page titre ----------
+\begin{titlepage}
+  \centering
+  {\Large Université TÉLUQ\par}
+  \vspace{3.5cm}
+  {\large INF 5114\par}
+  \vspace{0.4cm}
+  {\large Travail 1\par}
+  \vspace{2cm}
+  \rule{\textwidth}{0.6pt}\par
+  \vspace{0.6cm}
+  {\LARGE\bfseries Plan de projet documenté\par}
+  \vspace{0.5cm}
+  {\Large Assistant IA de planification de réunions pour PME\par}
+  \vspace{0.6cm}
+  \rule{\textwidth}{0.6pt}\par
+  \vspace{3cm}
+  {\large Présenté par\par}
+  \vspace{0.2cm}
+  {\large\bfseries Francis Côté\par}
+  % Code permanent : à compléter
+  \vfill
+  {\large 8 octobre 2026\par}
+\end{titlepage}
+
+% ---------- Table des matières ----------
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+\section{Finalisation du choix du projet}
+
+\subsection{Projet sélectionné}
+
+\textbf{Nom du projet :} Assistant IA de planification de réunions pour PME.
+
+\textbf{Description succincte :} Dans une petite entreprise, les demandes de réunion arrivent par courriel, mêlées au reste du courrier, et chacun doit les repérer, comparer les agendas à la main et envoyer les invitations. Je vais développer un assistant qui surveille les courriels entrants d'un utilisateur, détecte avec un modèle de langage (Gemini) ceux qui demandent une réunion, trouve un créneau libre dans les calendriers des personnes concernées, ajoute le rendez-vous au calendrier et envoie l'invitation à tous les participants. Au moment de confirmer, l'utilisateur choisit si l'assistant gère ensuite automatiquement les réponses des participants pour cette réunion. Tout le projet fonctionne avec des données fictives.
+
+\subsection{Critères d'évaluation}
+
+\subsubsection{Adéquation avec mes compétences}
+
+\begin{itemize}
+  \item \textbf{Compétences maîtrisées :} développement logiciel et web (plusieurs années d'expérience comme développeur), consommation d'API REST, utilisation de l'API Gemini et rédaction de prompts, conception d'applications complètes (interface, logique, données).
+  \item \textbf{Compétences à développer :} obtenir des sorties structurées (JSON) fiables d'un LLM, évaluer objectivement la qualité d'une détection et d'une extraction, et concevoir un jeu de tests pour une fonctionnalité d'IA générative.
+  \item \textbf{Lien avec le projet :} mon expérience de développeur me permet de construire rapidement l'application autour du modèle, ce qui me laisse du temps pour la partie qui compte dans ce cours : l'intégration et l'évaluation de l'IA générative.
+\end{itemize}
+
+\subsubsection{Pertinence pour l'entreprise}
+
+\begin{itemize}
+  \item \textbf{Problématique adressée :} dans une PME sans adjoint administratif, les demandes de réunion se perdent dans les courriels et leur planification se fait par vérification manuelle des agendas, ce qui est lent et source d'erreurs (demandes oubliées, conflits d'horaire, participants omis).
+  \item \textbf{Public cible :} une petite entreprise de services de 4 à 5 employés, où chacun gère sa propre boîte de réception et son propre agenda. Pour le cours, cette entreprise et ses employés sont fictifs.
+  \item \textbf{Impact mesurable :} passer d'environ 5 minutes de planification manuelle à moins de 30 secondes par réunion, sans aucun conflit d'horaire dans les créneaux retenus.
+\end{itemize}
+
+\subsubsection{Intérêt personnel}
+
+\begin{itemize}
+  \item \textbf{Motivation :} je veux approfondir l'intégration d'un LLM dans une application qui accomplit une tâche concrète du début à la fin, et non seulement produire du texte.
+  \item \textbf{Secteur ou sujet :} l'automatisation des tâches administratives des petites entreprises m'intéresse, car ce sont elles qui ont le moins de ressources à y consacrer.
+\end{itemize}
+
+\section{Justification du choix}
+
+\subsection{Compétences pertinentes}
+
+\begin{itemize}
+  \item \textbf{Développement d'applications :} je développe des applications professionnellement depuis 2020, de l'interface jusqu'à la logique et aux données.
+  \item \textbf{API et LLM :} j'ai déjà utilisé l'API Gemini et d'autres API de modèles de langage dans des projets personnels et universitaires.
+  \item \textbf{Rigueur de test :} mon expérience en programmation embarquée m'a habitué à valider un système avec des cas de test précis et reproductibles.
+\end{itemize}
+
+\subsection{Lien avec le projet}
+
+Le projet se divise en deux parties qui correspondent à mes compétences. La lecture des courriels est confiée à Gemini : il détermine si un courriel demande une réunion et, si oui, en extrait le sujet, les participants, la durée et les contraintes de date dans une sortie JSON structurée. La recherche du créneau libre, l'ajout au calendrier et l'envoi des invitations sont faits par du code classique, déterministe, que je maîtrise déjà. Cette séparation limite le rôle du modèle à ce qu'il fait bien et rend le résultat vérifiable.
+
+Le principal défi est la fiabilité de la détection et de l'extraction. Je vais le surmonter avec un schéma de sortie imposé, une validation des données retournées et une confirmation par l'utilisateur avant l'envoi des invitations. C'est aussi à cette confirmation que l'utilisateur décide, réunion par réunion, s'il délègue le suivi des réponses à l'assistant.
+
+Ce projet est entièrement distinct de mon projet du cours INF1430. Il ne partage ni code ni fonctionnalité avec celui-ci : il ne fait aucune transcription, aucune extraction de décisions et aucune interrogation d'historique. Il se limite à la planification, donc à ce qui se passe avant la réunion.
+
+\subsection{Motivation}
+
+Ce projet me permet de travailler un cas complet d'IA générative appliquée : lecture d'un texte libre, décision, extraction structurée, puis action concrète. À plus long terme, savoir intégrer un LLM de façon fiable dans une application est une compétence que je veux pouvoir offrir comme développeur.
+
+\section{Plan de projet documenté}
+
+\subsection{Objectifs du projet}
+
+\textbf{Objectif principal :} développer un assistant qui surveille les courriels entrants d'un utilisateur, détecte les demandes de réunion et, pour chacune, planifie la réunion sans conflit et envoie l'invitation aux participants en moins de 30 secondes.
+
+\textbf{Objectifs secondaires et métriques de succès}, mesurés sur une boîte de réception fictive de 30 courriels (20 demandes de réunion et 10 courriels sans rapport) :
+\begin{itemize}
+  \item au moins 90~\% des courriels correctement classés (demande de réunion ou non);
+  \item au moins 85~\% des champs extraits correctement (sujet, participants, durée, contraintes de date);
+  \item 100~\% des créneaux retenus sans conflit avec les calendriers des participants;
+  \item au moins 90~\% des réponses des participants correctement interprétées (acceptation, refus ou demande de déplacement), sur 10 réponses fictives;
+  \item temps de traitement inférieur à 30 secondes par courriel;
+  \item aucune invitation envoyée sans confirmation de l'utilisateur, et aucune réponse traitée automatiquement si l'utilisateur n'a pas activé ce mode pour la réunion.
+\end{itemize}
+
+\subsection{Portée du projet}
+
+\textbf{Fonctionnalités incluses :}
+\begin{enumerate}
+  \item Vue sur les courriels entrants d'un utilisateur et lecture de chaque nouveau courriel.
+  \item Détection par Gemini des courriels qui demandent une réunion.
+  \item Extraction par Gemini du sujet, des participants, de la durée et des contraintes de date.
+  \item Recherche du premier créneau commun libre dans les calendriers des participants (4 à 5 utilisateurs), pendant les heures de bureau.
+  \item Après confirmation de l'utilisateur, ajout du rendez-vous au calendrier et envoi de l'invitation à tous les participants concernés.
+  \item Lors de la confirmation, choix par l'utilisateur du mode de suivi pour cette réunion : automatique ou manuel. En mode automatique, l'assistant lit les réponses des participants, note les acceptations et, en cas de refus ou de demande de déplacement, cherche un nouveau créneau et envoie l'invitation mise à jour sans redemander de confirmation. En mode manuel, il ne traite aucune réponse.
+\end{enumerate}
+
+\textbf{Limites :}
+\begin{itemize}
+  \item Les boîtes de réception et les calendriers sont simulés. La connexion à de vrais services (Gmail, Google Agenda, Outlook) est facultative et ne fait pas partie des livrables; l'application est toutefois structurée pour qu'elle puisse être ajoutée plus tard.
+  \item Une seule réunion par courriel, sans réunions récurrentes.
+  \item Le suivi automatique se limite à trois types de réponse (acceptation, refus, demande de déplacement) et à deux replanifications par réunion; au-delà, l'assistant redonne la main à l'utilisateur.
+  \item Texte en français seulement; aucun traitement de la voix, des images ni des pièces jointes.
+  \item Aucune fonctionnalité d'après-réunion (transcription, compte rendu, suivi des actions).
+\end{itemize}
+
+\textbf{Données utilisées :} un jeu de données entièrement fictif que je vais créer : une boîte de réception de 30 courriels (20 demandes de réunion et 10 courriels sans rapport, comme une facture ou une infolettre), 10 réponses de participants à des invitations et les calendriers de 5 employés fictifs.
+
+\textbf{Éthique et confidentialité :}
+\begin{itemize}
+  \item Aucune donnée réelle n'est utilisée dans le développement ni dans les tests; les noms, courriels et agendas sont inventés.
+  \item Les données sont stockées localement. Seul le texte des courriels est envoyé à l'API Gemini, et comme le niveau gratuit peut utiliser les données soumises pour améliorer ses modèles, aucune information réelle ou sensible n'y sera transmise.
+  \item L'utilisateur valide toujours la réunion proposée avant que les invitations soient envoyées. Le suivi automatique des réponses n'est jamais activé par défaut : il est choisi explicitement pour chaque réunion.
+  \item Lire une boîte de réception est intrusif : si de vrais comptes étaient connectés plus tard, le consentement explicite du propriétaire de la boîte et de chaque participant serait requis.
+\end{itemize}
+
+\subsection{Calendrier}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
+\toprule
+\textbf{Semaine} & \textbf{Tâche} & \textbf{Livrable / résultat} \\
+\midrule
+Semaine 3 & Finalisation du choix et justification & Projet sélectionné et accepté \\
+Semaine 4 & Élaboration du plan de projet & Plan de projet documenté soumis \\
+Semaine 5 & Analyse des besoins et création des données fictives & Courriels, réponses et 5 calendriers fictifs prêts \\
+Semaine 6 & Prototype de la détection et de l'extraction avec Gemini & Détection et extraction JSON fonctionnelles \\
+Semaine 7 & Recherche de créneaux, tests préliminaires et rapport & Rapport de mi-parcours soumis \\
+Semaines 8--9 & Vue des courriels entrants, ajout au calendrier, envoi des invitations, suivi automatique des réponses et optimisation des prompts & Version complète de l'assistant \\
+Semaine 10 & Tests finaux et mesure des métriques & Assistant validé sur le jeu de données fictif \\
+Semaine 11 & Finalisation et soumission & Produit final soumis \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Ressources nécessaires}
+
+\begin{itemize}
+  \item \textbf{Outils :} API Gemini (niveau gratuit), Node.js avec TypeScript, une interface web simple, Git et VS Code.
+  \item \textbf{Données :} jeu de données fictif (boîte de réception et calendriers en fichiers JSON).
+  \item \textbf{Autres :} documentation de l'API Gemini; aucun serveur requis, l'application s'exécute localement.
+\end{itemize}
+
+\subsection{Risques et mesures d'atténuation}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}XX@{}}
+\toprule
+\textbf{Risque} & \textbf{Mesure d'atténuation} \\
+\midrule
+Sortie du modèle incorrecte ou mal structurée (participant inventé, date erronée) & Schéma JSON imposé, validation des champs par le code et confirmation de l'utilisateur avant tout envoi \\
+Dépassement de la portée ou de l'échéancier & Le suivi automatique des réponses est développé en dernier (semaines 8--9); le cœur de l'assistant est fonctionnel dès la semaine 7 \\
+Limites de requêtes du niveau gratuit de Gemini & Un seul appel par courriel, jeu de tests de taille réduite et mise en cache des réponses pendant le développement \\
+Jeu de données fictif trop simple, qui surestime les résultats & Courriels rédigés avec des formulations variées, dont des cas ambigus et des demandes incomplètes \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Conclusion}
+
+Ce projet applique mes compétences de développeur à un problème simple et concret, avec une portée volontairement réduite : surveiller les courriels entrants, détecter les demandes de réunion, trouver un créneau, envoyer l'invitation et, si l'utilisateur le choisit, gérer les réponses. Cette portée est réaliste pour les semaines disponibles et ses résultats sont mesurables.
+
+Je m'engage à livrer un assistant fonctionnel et testé d'ici la semaine 11, en respectant les échéances du rapport de mi-parcours (semaine 7) et du produit final.
+
+\end{document}
