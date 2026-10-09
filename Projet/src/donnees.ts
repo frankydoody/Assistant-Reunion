@@ -30,6 +30,13 @@ export function validerDonnees(calendriers: Calendriers, boite: BoiteReception):
   const erreurs: string[] = [];
   const connus = new Set(calendriers.utilisateurs.map((u) => u.courriel));
 
+  for (const u of calendriers.utilisateurs) {
+    const p = u.preferences;
+    if (!p || typeof p.reunionsSurHeureDiner !== "boolean" || typeof p.reunionsHorsBureau !== "boolean") {
+      erreurs.push(`Utilisateur ${u.courriel} : préférences manquantes ou invalides`);
+    }
+  }
+
   for (const e of calendriers.evenements) {
     const nom = `Événement « ${e.titre} » (${e.debut})`;
     if (!connus.has(e.proprietaire)) erreurs.push(`${nom} : propriétaire inconnu ${e.proprietaire}`);

@@ -1,12 +1,14 @@
 {
   "entreprise": "Atelier Boréal (PME fictive de services-conseils)",
   "heuresBureau": { "debut": "09:00", "fin": "17:00" },
+  "heureDiner": { "debut": "12:00", "fin": "13:00" },
+  "heuresEtendues": { "debut": "07:00", "fin": "20:00" },
   "utilisateurs": [
-    { "courriel": "camille.tremblay@atelierboreal.example", "nom": "Camille Tremblay", "role": "Directrice" },
-    { "courriel": "olivier.gagnon@atelierboreal.example", "nom": "Olivier Gagnon", "role": "Technicien principal" },
-    { "courriel": "sarah.bouchard@atelierboreal.example", "nom": "Sarah Bouchard", "role": "Responsable des finances" },
-    { "courriel": "mathieu.lavoie@atelierboreal.example", "nom": "Mathieu Lavoie", "role": "Développeur" },
-    { "courriel": "lea.fortin@atelierboreal.example", "nom": "Léa Fortin", "role": "Responsable des ressources humaines" }
+    { "courriel": "camille.tremblay@atelierboreal.example", "nom": "Camille Tremblay", "role": "Directrice", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false } },
+    { "courriel": "olivier.gagnon@atelierboreal.example", "nom": "Olivier Gagnon", "role": "Technicien principal", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": true } },
+    { "courriel": "sarah.bouchard@atelierboreal.example", "nom": "Sarah Bouchard", "role": "Responsable des finances", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false } },
+    { "courriel": "mathieu.lavoie@atelierboreal.example", "nom": "Mathieu Lavoie", "role": "Développeur", "preferences": { "reunionsSurHeureDiner": true, "reunionsHorsBureau": false } },
+    { "courriel": "lea.fortin@atelierboreal.example", "nom": "Léa Fortin", "role": "Responsable des ressources humaines", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false } }
   ],
   "evenements": [
     { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Rencontre client Dubois", "debut": "2026-10-19T10:00", "fin": "2026-10-19T11:00" },

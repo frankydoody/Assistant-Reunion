@@ -1,10 +1,18 @@
 // Types partagés par toute l'application.
 // Les dates sont des chaînes locales au format AAAA-MM-JJTHH:MM (sans fuseau).
 
+// Configuration de l'assistant propre à chaque utilisateur.
+// D'autres réglages pourront s'ajouter ici plus tard.
+export interface Preferences {
+  reunionsSurHeureDiner: boolean; // accepte des réunions pendant l'heure du dîner
+  reunionsHorsBureau: boolean; // accepte des réunions en dehors des heures de bureau
+}
+
 export interface Utilisateur {
   courriel: string;
   nom: string;
   role: string;
+  preferences: Preferences;
 }
 
 export interface Evenement {
@@ -17,6 +25,8 @@ export interface Evenement {
 export interface Calendriers {
   entreprise: string;
   heuresBureau: { debut: string; fin: string }; // HH:MM
+  heureDiner: { debut: string; fin: string }; // HH:MM
+  heuresEtendues: { debut: string; fin: string }; // limites pour ceux qui acceptent le hors bureau
   utilisateurs: Utilisateur[];
   evenements: Evenement[];
 }
