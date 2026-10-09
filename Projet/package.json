@@ -7,6 +7,7 @@
   "engines": { "node": ">=20" },
   "scripts": {
     "verifier-donnees": "tsx src/verifier-donnees.ts",
+    "tester-creneaux": "tsx src/tester-creneaux.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
