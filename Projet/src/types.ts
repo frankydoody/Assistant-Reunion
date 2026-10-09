@@ -6,6 +6,7 @@
 export interface Preferences {
   reunionsSurHeureDiner: boolean; // accepte des réunions pendant l'heure du dîner
   reunionsHorsBureau: boolean; // accepte des réunions en dehors des heures de bureau
+  plageRechercheJours: number; // jusqu'où l'assistant cherche un créneau après la réception du courriel
 }
 
 export interface Utilisateur {

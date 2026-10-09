@@ -5,7 +5,6 @@
 import type { Calendriers, Fenetre } from "./types";
 
 export const DUREE_PAR_DEFAUT_MINUTES = 30; // si le courriel ne précise pas la durée
-export const FENETRE_PAR_DEFAUT_JOURS = 7; // si le courriel ne précise aucune date
 const PAS_MINUTES = 15; // les réunions commencent à l'heure, au quart ou à la demie
 
 export interface Creneau {
@@ -19,6 +18,7 @@ export interface DemandeCreneau {
   dureeMinutes: number | null;
   fenetre: Fenetre | null;
   plusTot: string; // jamais avant ce moment (date de réception du courriel)
+  plageRechercheJours: number; // préférence du propriétaire de la boîte de réception
 }
 
 // Une réunion déjà placée, qui occupe ses participants.
@@ -61,7 +61,7 @@ export function trouverCreneau(
   const debutFenetre = demande.fenetre ? versMinutes(demande.fenetre.debut) : plusTot;
   const finFenetre = demande.fenetre
     ? versMinutes(demande.fenetre.fin)
-    : plusTot + FENETRE_PAR_DEFAUT_JOURS * 24 * 60;
+    : plusTot + demande.plageRechercheJours * 24 * 60;
 
   const bureau = {
     debut: minutesDuJour(calendriers.heuresBureau.debut),
@@ -152,23 +152,47 @@ export function detecterGroupesEnConflit(
 // 2) les réunions choisies comme prioritaires par l'utilisateur;
 // 3) les autres demandes en conflit, par ordre de réception, replacées
 //    autour des réunions déjà placées.
+//
+// Si une demande n'a aucun créneau dans les dates demandées, elle n'est pas
+// placée : l'assistant demande à l'utilisateur de vérifier et de confirmer une
+// date. Pour l'aider, il suggère le premier créneau libre entre le début des
+// dates demandées et la fin de la plage de recherche de l'utilisateur.
+export interface Placement {
+  creneau: Creneau | null; // null : rien de placé
+  aConfirmer: boolean; // true : l'utilisateur doit vérifier et confirmer une date
+  suggestion: Creneau | null; // seulement si aConfirmer
+}
+
 export function planifierLot(
   calendriers: Calendriers,
   demandes: DemandeCreneau[],
   groupes: string[][],
   prioritaires: string[],
-): Map<string, Creneau | null> {
+): Map<string, Placement> {
   const enConflit = new Set(groupes.flat());
   const rang = (d: DemandeCreneau): number =>
     !enConflit.has(d.id) ? 0 : prioritaires.includes(d.id) ? 1 : 2;
   const ordre = [...demandes].sort((a, b) => rang(a) - rang(b) || a.plusTot.localeCompare(b.plusTot));
 
   const placees: ReunionPlacee[] = [];
-  const resultat = new Map<string, Creneau | null>();
+  const resultat = new Map<string, Placement>();
+  const sansCreneau: DemandeCreneau[] = [];
   for (const d of ordre) {
     const creneau = trouverCreneau(calendriers, d, placees);
-    resultat.set(d.id, creneau);
-    if (creneau) placees.push({ participants: d.participants, creneau });
+    if (creneau) {
+      resultat.set(d.id, { creneau, aConfirmer: false, suggestion: null });
+      placees.push({ participants: d.participants, creneau });
+    } else {
+      sansCreneau.push(d);
+    }
+  }
+
+  for (const d of sansCreneau) {
+    const finPlage = versTexte(versMinutes(d.plusTot) + d.plageRechercheJours * 24 * 60);
+    const debut = d.fenetre ? d.fenetre.debut : d.plusTot;
+    const suggestion =
+      debut < finPlage ? trouverCreneau(calendriers, { ...d, fenetre: { debut, fin: finPlage } }, placees) : null;
+    resultat.set(d.id, { creneau: null, aConfirmer: true, suggestion });
   }
   return resultat;
 }

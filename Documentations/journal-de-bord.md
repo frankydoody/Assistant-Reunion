@@ -34,6 +34,8 @@ Dans une PME de 4 à 5 employés sans adjoint administratif, les demandes de ré
 | 2026-10-09 | Configuration de l'assistant par utilisateur : réunions sur l'heure du dîner (oui ou non) et réunions hors des heures de bureau (oui ou non); d'autres réglages pourront s'ajouter | Chaque employé a ses propres habitudes; un seul réglage pour toute la PME serait trop rigide |
 | 2026-10-09 | Un créneau doit respecter les préférences de tous les participants (le plus restrictif l'emporte) | Personne ne se fait imposer une réunion sur son dîner ou hors de ses heures |
 | 2026-10-09 | Créneaux en double : l'utilisateur reçoit une seule demande de confirmation pour tout le groupe et choisit la réunion prioritaire; les autres sont replacées jusqu'à ce que toutes soient acceptées | L'utilisateur décide de ce qui passe en premier, l'assistant s'occupe du reste |
+| 2026-10-09 | Plage de recherche configurable par utilisateur (14 jours dans les données fictives) | Chaque utilisateur décide jusqu'où l'assistant peut chercher |
+| 2026-10-09 | Aucune place disponible : l'assistant ne place rien et demande à l'utilisateur de vérifier et de confirmer une date, avec une suggestion prise dans sa plage de recherche | L'assistant ne choisit jamais seul une date hors de ce qui a été demandé |
 | 2026-10-09 | Si un participant refuse ou propose un autre créneau, l'utilisateur choisit : l'IA passe en mode automatique, ou il continue de choisir lui-même les créneaux | L'utilisateur garde le contrôle au moment où la planification se complique |
 
 ## 4. Problèmes rencontrés et solutions
@@ -45,7 +47,7 @@ Dans une PME de 4 à 5 employés sans adjoint administratif, les demandes de ré
 | 2026-10-08 | Le suivi automatique alourdit le projet | Borné à 3 types de réponse et 2 replanifications; développé en dernier (semaines 8-9) | Réglé |
 | 2026-10-08 | Plusieurs créneaux tombent sur l'heure du dîner (12 h) | Préférence par utilisateur : chacun accepte ou non les réunions sur l'heure du dîner (12 h à 13 h) | Réglé |
 | 2026-10-08 | Trois demandes obtiennent le même créneau (M08, M14, M17), car chaque demande est testée seule | Détection des groupes de créneaux en double, choix d'une réunion prioritaire, puis replacement des autres (logique faite; l'écran de confirmation reste à faire) | Réglé en partie |
-| 2026-10-09 | Après replacement, une demande n'a plus aucun créneau dans sa fenêtre (M12 : toute l'équipe, 1 heure, lundi ou mardi) | À décider : proposer à l'utilisateur d'élargir la fenêtre ou de changer la réunion prioritaire | Ouvert |
+| 2026-10-09 | Après replacement, une demande n'a plus aucun créneau dans sa fenêtre (M12 : toute l'équipe, 1 heure, lundi ou mardi) | L'assistant demande à l'utilisateur de vérifier et de confirmer une date, et suggère le premier créneau libre de sa plage de recherche (logique faite; l'écran reste à faire) | Réglé en partie |
 
 ## 5. Prompts
 
@@ -59,6 +61,7 @@ Dans une PME de 4 à 5 employés sans adjoint administratif, les demandes de ré
 
 | 2026-10-08 | Recherche de créneaux sur les 20 demandes, à partir des résultats attendus (`npm run tester-creneaux`) | 20 créneaux trouvés sur 20, aucun conflit |
 | 2026-10-09 | Même test avec les préférences par utilisateur et la résolution des créneaux en double (choix de la prioritaire simulé) | 4 groupes de créneaux en double détectés; 19 réunions placées sur 20; aucun conflit avec les calendriers, aucun conflit entre réunions, toutes les préférences respectées |
+| 2026-10-09 | Même test avec la plage de recherche et la demande de confirmation de date | 19 réunions placées sur 20; 1 date à confirmer (M12, suggestion : mercredi 28 octobre, 14 h 30); aucun conflit; toutes les préférences respectées |
 
 À ajouter : pour chaque essai avec Gemini, la version du prompt et les métriques (détection, extraction, créneaux, temps).
 
@@ -78,5 +81,6 @@ Dans une PME de 4 à 5 employés sans adjoint administratif, les demandes de ré
 
 - Préférences par utilisateur ajoutées aux données fictives et à la recherche de créneaux (heure du dîner, hors bureau).
 - Détection des créneaux en double et replacement autour de la réunion prioritaire (`detecterGroupesEnConflit`, `planifierLot` dans `src/creneaux.ts`).
+- Plage de recherche par utilisateur et demande de confirmation de date quand aucune place n'est disponible.
 - Test refait sur les 20 demandes.
 - À faire ensuite : premier prompt Gemini (détection et extraction), l'écran de confirmation, puis les réponses des participants (semaines 8-9).

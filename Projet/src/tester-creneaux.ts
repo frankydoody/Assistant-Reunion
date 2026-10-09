@@ -20,6 +20,7 @@ const calendriers = chargerCalendriers();
 const boite = chargerBoiteReception();
 const courriels = boite.courriels.filter((c) => c.attendu.estReunion);
 const objet = new Map(courriels.map((c) => [c.id, c.objet]));
+const proprietaire = calendriers.utilisateurs.find((u) => u.courriel === boite.proprietaire)!;
 
 const demandes: DemandeCreneau[] = courriels.map((c) => ({
   id: c.id,
@@ -27,6 +28,7 @@ const demandes: DemandeCreneau[] = courriels.map((c) => ({
   dureeMinutes: c.attendu.dureeMinutes ?? null,
   fenetre: c.attendu.fenetre ?? null,
   plusTot: c.date,
+  plageRechercheJours: proprietaire.preferences.plageRechercheJours,
 }));
 
 const texte = (c: Creneau | null | undefined): string =>
@@ -47,7 +49,13 @@ const final = planifierLot(calendriers, demandes, groupes, prioritaires);
 console.log("\nHoraire final");
 for (const d of demandes) {
   const avant = propositions.get(d.id);
-  const apres = final.get(d.id);
+  const placement = final.get(d.id)!;
+  const apres = placement.creneau;
+  if (placement.aConfirmer) {
+    const suggestion = placement.suggestion ? `suggestion : ${texte(placement.suggestion)}` : "aucune suggestion";
+    console.log(`${d.id}  DATE À CONFIRMER PAR L'UTILISATEUR  ${objet.get(d.id)}  (${suggestion})`);
+    continue;
+  }
   const deplacee = avant && apres && avant.debut !== apres.debut ? "  (replacée)" : "";
   console.log(`${d.id}  ${texte(apres)}  ${objet.get(d.id)}${deplacee}`);
 }
@@ -59,13 +67,13 @@ let horsPreferences = 0;
 const diner = calendriers.heureDiner;
 
 for (const d of demandes) {
-  const c = final.get(d.id);
+  const c = final.get(d.id)?.creneau;
   if (!c) continue;
   if (calendriers.evenements.some((e) => d.participants.includes(e.proprietaire) && e.debut < c.fin && e.fin > c.debut)) {
     conflitsCalendrier++;
   }
   for (const autre of demandes) {
-    const c2 = final.get(autre.id);
+    const c2 = final.get(autre.id)?.creneau;
     if (autre.id <= d.id || !c2) continue;
     if (c.debut < c2.fin && c2.debut < c.fin && d.participants.some((p) => autre.participants.includes(p))) {
       conflitsEntreReunions++;
@@ -82,8 +90,10 @@ for (const d of demandes) {
   }
 }
 
-const places = demandes.filter((d) => final.get(d.id)).length;
+const places = demandes.filter((d) => final.get(d.id)?.creneau).length;
+const aConfirmer = demandes.filter((d) => final.get(d.id)?.aConfirmer).length;
 console.log(`\nRéunions placées                 : ${places}/${demandes.length}`);
+console.log(`Dates à confirmer                : ${aConfirmer}`);
 console.log(`Conflits avec les calendriers    : ${conflitsCalendrier}`);
 console.log(`Conflits entre réunions          : ${conflitsEntreReunions}`);
 console.log(`Préférences non respectées       : ${horsPreferences}`);

@@ -4,11 +4,11 @@
   "heureDiner": { "debut": "12:00", "fin": "13:00" },
   "heuresEtendues": { "debut": "07:00", "fin": "20:00" },
   "utilisateurs": [
-    { "courriel": "camille.tremblay@atelierboreal.example", "nom": "Camille Tremblay", "role": "Directrice", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false } },
-    { "courriel": "olivier.gagnon@atelierboreal.example", "nom": "Olivier Gagnon", "role": "Technicien principal", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": true } },
-    { "courriel": "sarah.bouchard@atelierboreal.example", "nom": "Sarah Bouchard", "role": "Responsable des finances", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false } },
-    { "courriel": "mathieu.lavoie@atelierboreal.example", "nom": "Mathieu Lavoie", "role": "Développeur", "preferences": { "reunionsSurHeureDiner": true, "reunionsHorsBureau": false } },
-    { "courriel": "lea.fortin@atelierboreal.example", "nom": "Léa Fortin", "role": "Responsable des ressources humaines", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false } }
+    { "courriel": "camille.tremblay@atelierboreal.example", "nom": "Camille Tremblay", "role": "Directrice", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false, "plageRechercheJours": 14 } },
+    { "courriel": "olivier.gagnon@atelierboreal.example", "nom": "Olivier Gagnon", "role": "Technicien principal", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": true, "plageRechercheJours": 14 } },
+    { "courriel": "sarah.bouchard@atelierboreal.example", "nom": "Sarah Bouchard", "role": "Responsable des finances", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false, "plageRechercheJours": 14 } },
+    { "courriel": "mathieu.lavoie@atelierboreal.example", "nom": "Mathieu Lavoie", "role": "Développeur", "preferences": { "reunionsSurHeureDiner": true, "reunionsHorsBureau": false, "plageRechercheJours": 14 } },
+    { "courriel": "lea.fortin@atelierboreal.example", "nom": "Léa Fortin", "role": "Responsable des ressources humaines", "preferences": { "reunionsSurHeureDiner": false, "reunionsHorsBureau": false, "plageRechercheJours": 14 } }
   ],
   "evenements": [
     { "proprietaire": "camille.tremblay@atelierboreal.example", "titre": "Rencontre client Dubois", "debut": "2026-10-19T10:00", "fin": "2026-10-19T11:00" },

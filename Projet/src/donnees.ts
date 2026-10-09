@@ -32,7 +32,8 @@ export function validerDonnees(calendriers: Calendriers, boite: BoiteReception):
 
   for (const u of calendriers.utilisateurs) {
     const p = u.preferences;
-    if (!p || typeof p.reunionsSurHeureDiner !== "boolean" || typeof p.reunionsHorsBureau !== "boolean") {
+    if (!p || typeof p.reunionsSurHeureDiner !== "boolean" || typeof p.reunionsHorsBureau !== "boolean" ||
+      !Number.isInteger(p.plageRechercheJours) || p.plageRechercheJours < 1) {
       erreurs.push(`Utilisateur ${u.courriel} : préférences manquantes ou invalides`);
     }
   }
