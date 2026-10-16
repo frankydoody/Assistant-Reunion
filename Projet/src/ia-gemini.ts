@@ -6,7 +6,8 @@ import type { AnalyseurIA, ContexteAnalyse, ContexteReponse } from "./ia";
 import { promptAnalyse, promptReponse, SCHEMA_ANALYSE, SCHEMA_REPONSE } from "./prompts";
 import type { CourrielRecu } from "./types";
 
-const ESSAIS_MAX = 3;
+const ESSAIS_MAX = 5;
+const ATTENTE_MAX_MS = 60_000;
 const DELAI_EXPIRATION_MS = 30_000;
 const CODES_A_REESSAYER = new Set([429, 500, 503]);
 
@@ -57,12 +58,16 @@ export class AnalyseurGemini implements AnalyseurIA {
       });
 
       if (!reponse.ok) {
+        const detail = await reponse.text();
         if (CODES_A_REESSAYER.has(reponse.status) && essai < ESSAIS_MAX) {
-          await attendre(2000 * 2 ** (essai - 1)); // 2 s, puis 4 s
+          // Le niveau gratuit limite le nombre d'appels par minute; l'API
+          // indique alors le délai à respecter (« retryDelay »: "37s").
+          const demande = Number(detail.match(/"retryDelay":\s*"(\d+(?:\.\d+)?)s"/)?.[1]);
+          const delai = Number.isFinite(demande) ? demande * 1000 + 500 : 2000 * 2 ** (essai - 1);
+          await attendre(Math.min(delai, ATTENTE_MAX_MS));
           continue;
         }
-        const detail = (await reponse.text()).slice(0, 300);
-        throw new ErreurIA(`Gemini a répondu ${reponse.status} : ${detail}`);
+        throw new ErreurIA(`Gemini a répondu ${reponse.status} : ${detail.slice(0, 300)}`);
       }
 
       const json = (await reponse.json()) as {

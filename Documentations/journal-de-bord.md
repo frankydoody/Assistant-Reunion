@@ -47,6 +47,13 @@ Dans une PME de 4 à 5 employés sans adjoint administratif, les demandes de ré
 | 2026-10-16 | En passant au suivi automatique pendant une intervention, le compteur de replanifications repart à zéro | L'utilisateur délègue de nouveau la suite à l'assistant |
 | 2026-10-16 | Réunions gardées en mémoire, sans base de données | Suffisant pour une démonstration avec des données fictives; garde le projet léger |
 | 2026-10-16 | Serveur Express, API REST | Bibliothèque simple et connue, cohérente avec mes autres projets Node.js |
+| 2026-10-16 | Tableau de bord en React + Vite, servi par le même serveur | Même façon de travailler que mes autres projets, en une seule petite application |
+| 2026-10-16 | Application web installable (manifeste + service worker) plutôt qu'un logiciel de bureau (Electron) | « S'installe et s'ouvre » comme un logiciel, sans ajouter une deuxième technologie |
+| 2026-10-16 | Parcours : connexion d'un service (Google ou Microsoft) ou démo sans compte; la démo lit aussitôt la boîte | L'IA se met au travail dès la connexion; la démo permet de présenter le projet sans compte réel |
+| 2026-10-16 | Lecture de la boîte en arrière-plan, avec progression affichée | Avec Gemini, 30 courriels prennent du temps; l'utilisateur voit l'avancement au lieu d'attendre |
+| 2026-10-16 | Actions de l'utilisateur exécutées une à la fois, entre deux courriels | Évite qu'une confirmation et une analyse modifient la même réunion en même temps |
+| 2026-10-16 | Couleurs inspirées des suites bureautiques courantes (bleu, rouge, jaune, vert, gris neutres), logo original | Aspect familier pour une PME, sans reprendre de logo ni d'élément protégé |
+| 2026-10-16 | Navigation par l'adresse (#/page) | Bouton Précédent, rechargement et favoris fonctionnent sur chaque écran |
 
 ## 4. Problèmes rencontrés et solutions
 
@@ -63,6 +70,10 @@ Dans une PME de 4 à 5 employés sans adjoint administratif, les demandes de ré
 | 2026-10-16 | Risque de fausser l'évaluation si les exemples du prompt reprennent des phrases des courriels de test | Exemples du prompt choisis différents des données de test (« une heure et quart », « dès que possible ») | Réglé |
 | 2026-10-16 | Comparer les dates extraites au caractère près est trop sévère (9 h ou heure de réception donnent le même résultat) | Dates jugées correctes si elles mènent au même créneau que les dates attendues | Réglé |
 | 2026-10-16 | Un refus n'exclut que le créneau refusé; si le moment proposé par un participant est complet, le suivi automatique revient aux dates d'origine (M04 replanifiée mardi alors que Mathieu demandait mercredi matin) | Limite documentée dans `architecture.md`; à discuter dans le rapport | Ouvert |
+| 2026-10-16 | Le conteneur de développement ne peut pas joindre l'API Gemini (réseau limité) | L'évaluation réelle (`npm run evaluer-ia`) se lance sur mon ordinateur; le client a été testé contre un faux serveur | Contourné |
+| 2026-10-16 | Le niveau gratuit de Gemini limite le nombre d'appels par minute (erreur 429) | Reprise automatique en respectant le délai indiqué par l'API (jusqu'à 5 essais, 60 s au plus) | Réglé |
+| 2026-10-16 | Revue visuelle du tableau de bord : notifications empilées sur le contenu, en-tête du calendrier décalé, petits blocs coupés, débordement horizontal sur téléphone, message « 0 demande(s) » après une réponse | Notifications en bas à droite (2 au plus), en-tête du calendrier corrigé, blocs courts sur une ligne, colonnes sans largeur minimale, résumé sans les nombres nuls | Réglé |
+| 2026-10-16 | Les connecteurs Google et Microsoft demandent une inscription OAuth (Google Cloud, Microsoft Entra) | Boutons affichés comme « Bientôt offert »; la démo sans compte couvre le cours | Ouvert (facultatif) |
 | 2026-10-09 | Après replacement, une demande n'a plus aucun créneau dans sa fenêtre (M12 : toute l'équipe, 1 heure, lundi ou mardi) | L'assistant demande à l'utilisateur de vérifier et de confirmer une date, et suggère le premier créneau libre de sa plage de recherche (logique faite; l'écran reste à faire) | Réglé en partie |
 
 ## 5. Prompts
@@ -86,6 +97,8 @@ Les prompts sont dans `Projet/src/prompts.ts`. Chaque changement augmente `VERSI
 | 2026-10-16 | Mesure avec l'IA simulée (`npm run evaluer-ia`) | 100 % partout, comme attendu : la mesure fonctionne |
 | 2026-10-16 | Client Gemini contre un faux serveur | Reprise après une erreur 429; adresses inconnues retirées, durée en texte et date illisible ignorées par la validation |
 | 2026-10-16 | Routes de l'API testées une à une | Réponses correctes, y compris les erreurs (statut invalide, créneau occupé, mode invalide, JSON mal formé, route inconnue) |
+| 2026-10-16 | Parcours complet du tableau de bord dans un navigateur automatisé (Chromium) : connexion démo, créneaux en double, confirmations, réponses de démo, détail, calendrier, boîte, paramètres, téléphone, déconnexion | Tout fonctionne; aucune erreur dans la console; rechargement et bouton Précédent corrects; aucun débordement sur un écran de 390 px |
+| 2026-10-16 | Lecture en arrière-plan contre un faux serveur Gemini | Progression affichée (0 → 24 → 30 sur 30); reprise après une erreur 429; corrections de la validation visibles dans la carte |
 
 À ajouter : pour chaque essai avec Gemini, la version du prompt et les métriques (détection, extraction, créneaux, temps).
 
@@ -116,3 +129,7 @@ Les prompts sont dans `Projet/src/prompts.ts`. Chaque changement augmente `VERSI
 - 10 réponses fictives de participants ajoutées (`donnees/reponses.json`).
 - Scripts `simuler` et `evaluer-ia` écrits et exécutés.
 - À faire ensuite : obtenir la clé Gemini et lancer `npm run evaluer-ia`; construire le tableau de bord; rédiger le rapport de mi-parcours.
+- Tableau de bord React installable : connexion (Google et Microsoft prévus, démo sans compte), À traiter, Réunions et détail, Calendrier, Boîte de réception, Démo, Paramètres.
+- Serveur : session, mode démo, lecture en arrière-plan avec progression, actions une à la fois, ouverture automatique du navigateur.
+- Clé Gemini ajoutée dans `Projet/.env` (jamais envoyée sur GitHub).
+- À faire ensuite : lancer `npm run evaluer-ia` avec Gemini et noter les résultats; rédiger le rapport de mi-parcours.

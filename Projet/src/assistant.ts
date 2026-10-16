@@ -35,9 +35,19 @@ export interface ResultatTraitement {
   erreurs: { courriel: string; message: string }[];
 }
 
+export interface Progression {
+  enCours: boolean;
+  total: number;
+  traites: number;
+  erreurs: { courriel: string; message: string }[];
+  dernierResultat: ResultatTraitement | null;
+}
+
 export class Assistant {
   private readonly reunions = new Map<string, Reunion>();
   private prochainGroupe = 1;
+  private file: Promise<unknown> = Promise.resolve();
+  readonly progression: Progression = { enCours: false, total: 0, traites: 0, erreurs: [], dernierResultat: null };
 
   constructor(
     private readonly connecteur: Connecteur,
@@ -50,6 +60,14 @@ export class Assistant {
 
   listerReunions(): Reunion[] {
     return [...this.reunions.values()].sort((a, b) => a.recueLe.localeCompare(b.recueLe));
+  }
+
+  // Exécute les actions une à la fois : une action de l'utilisateur attend la
+  // fin du courriel en cours d'analyse, jamais toute la lecture de la boîte.
+  executer<T>(action: () => Promise<T>): Promise<T> {
+    const resultat = this.file.then(action, action);
+    this.file = resultat.catch(() => undefined);
+    return resultat;
   }
 
   obtenir(id: string): Reunion {
@@ -72,21 +90,33 @@ export class Assistant {
       reponsesTraitees: 0,
       erreurs: [],
     };
-    for (const c of await this.connecteur.nouveauxCourriels()) {
-      try {
-        if (c.enReponseA) {
-          await this.traiterReponse(c);
-          resultat.reponsesTraitees++;
-        } else {
-          const r = await this.analyser(c);
-          if (r) resultat.reunionsDetectees.push(r.id);
-          else resultat.courrielsSansRapport++;
-        }
-        await this.connecteur.marquerTraite(c.id);
-        resultat.courrielsTraites++;
-      } catch (e) {
-        resultat.erreurs.push({ courriel: c.id, message: e instanceof Error ? e.message : String(e) });
+    if (this.progression.enCours) throw new ErreurMetier("La lecture de la boîte de réception est déjà en cours.", 409);
+    const nouveaux = await this.connecteur.nouveauxCourriels();
+    Object.assign(this.progression, { enCours: true, total: nouveaux.length, traites: 0, erreurs: [] });
+    try {
+      for (const c of nouveaux) {
+        await this.executer(async () => {
+          try {
+            if (c.enReponseA) {
+              await this.traiterReponse(c);
+              resultat.reponsesTraitees++;
+            } else {
+              const r = await this.analyser(c);
+              if (r) resultat.reunionsDetectees.push(r.id);
+              else resultat.courrielsSansRapport++;
+            }
+            await this.connecteur.marquerTraite(c.id);
+            resultat.courrielsTraites++;
+          } catch (e) {
+            resultat.erreurs.push({ courriel: c.id, message: e instanceof Error ? e.message : String(e) });
+          }
+        });
+        this.progression.traites++;
+        this.progression.erreurs = [...resultat.erreurs];
       }
+    } finally {
+      this.progression.enCours = false;
+      this.progression.dernierResultat = resultat;
     }
     return resultat;
   }

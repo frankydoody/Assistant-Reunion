@@ -1,0 +1,1236 @@
+{
+  "date": "2026-10-16T21:51:25.239Z",
+  "ia": "simulée (résultats attendus des données fictives)",
+  "prompts": "v1",
+  "resume": {
+    "detection": "100.0 %",
+    "champs": "100.0 %",
+    "champsDetail": {
+      "sujet": "100.0 %",
+      "participants": "100.0 %",
+      "duree": "100.0 %",
+      "dates": "100.0 %"
+    },
+    "reponses": "100.0 %",
+    "tempsMoyenMs": 0,
+    "tempsMaxMs": 1
+  },
+  "courriels": [
+    {
+      "id": "M01",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Révision de la soumission Dubois",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-19T09:00",
+          "fin": "2026-10-23T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Révision de la soumission Dubois",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-19T09:00",
+          "fin": "2026-10-23T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 1,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M02",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Point budget T4",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 60,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-21T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Point budget T4",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 60,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-21T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N01",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M03",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Accueil du nouveau stagiaire",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 45,
+        "fenetre": {
+          "debut": "2026-10-19T09:00",
+          "fin": "2026-10-23T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Accueil du nouveau stagiaire",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 45,
+        "fenetre": {
+          "debut": "2026-10-19T09:00",
+          "fin": "2026-10-23T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M04",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Bogue de facturation",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 15,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-20T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Bogue de facturation",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 15,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-20T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N02",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M05",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Planification du déménagement des serveurs",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 120,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-30T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Planification du déménagement des serveurs",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 120,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-30T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N03",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M06",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Rétroaction du client Lemay",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example"
+        ],
+        "dureeMinutes": null,
+        "fenetre": {
+          "debut": "2026-10-22T12:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Rétroaction du client Lemay",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example"
+        ],
+        "dureeMinutes": null,
+        "fenetre": {
+          "debut": "2026-10-22T12:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N04",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M07",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Formation sur l'outil de suivi",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 90,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-27T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Formation sur l'outil de suivi",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 90,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-27T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M08",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Revue de code du module de rapports",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-21T09:00",
+          "fin": "2026-10-21T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Revue de code du module de rapports",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-21T09:00",
+          "fin": "2026-10-21T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M09",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Dossier Paquette",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Dossier Paquette",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N05",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M10",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Préparation du salon des PME",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 60,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-23T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Préparation du salon des PME",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 60,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-23T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N06",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M11",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Préparation de l'entrevue avec une candidate",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "lea.fortin@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example"
+        ],
+        "dureeMinutes": 45,
+        "fenetre": {
+          "debut": "2026-10-21T09:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Préparation de l'entrevue avec une candidate",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "lea.fortin@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example"
+        ],
+        "dureeMinutes": 45,
+        "fenetre": {
+          "debut": "2026-10-21T09:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N07",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M12",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Migration des courriels",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 60,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-27T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Migration des courriels",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 60,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-27T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M13",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Suivi du projet Gagné",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example"
+        ],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Suivi du projet Gagné",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example"
+        ],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N08",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M14",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Soumission Tremblay inc.",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Soumission Tremblay inc.",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-20T09:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N09",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M15",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Bilan mensuel",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 60,
+        "fenetre": {
+          "debut": "2026-10-22T09:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Bilan mensuel",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 60,
+        "fenetre": {
+          "debut": "2026-10-22T09:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M16",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Démo du prototype",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 20,
+        "fenetre": {
+          "debut": "2026-10-22T09:00",
+          "fin": "2026-10-23T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Démo du prototype",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 20,
+        "fenetre": {
+          "debut": "2026-10-22T09:00",
+          "fin": "2026-10-23T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M17",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Panne chez le client Roy",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-21T09:00",
+          "fin": "2026-10-21T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Panne chez le client Roy",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-21T09:00",
+          "fin": "2026-10-21T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "N10",
+      "attendu": {
+        "estReunion": false
+      },
+      "obtenu": {
+        "estReunion": false,
+        "sujet": null,
+        "participants": [],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": false,
+        "participants": false,
+        "duree": false,
+        "dates": false
+      }
+    },
+    {
+      "id": "M18",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Planification des vacances des Fêtes",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-30T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Planification des vacances des Fêtes",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": 30,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-30T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M19",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Nouveau processus d'embauche",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Nouveau processus d'embauche",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "olivier.gagnon@atelierboreal.example",
+          "sarah.bouchard@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example",
+          "lea.fortin@atelierboreal.example"
+        ],
+        "dureeMinutes": null,
+        "fenetre": null
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    },
+    {
+      "id": "M20",
+      "attendu": {
+        "estReunion": true,
+        "sujet": "Mentorat",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 45,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-26T17:00"
+        }
+      },
+      "obtenu": {
+        "estReunion": true,
+        "sujet": "Mentorat",
+        "participants": [
+          "camille.tremblay@atelierboreal.example",
+          "mathieu.lavoie@atelierboreal.example"
+        ],
+        "dureeMinutes": 45,
+        "fenetre": {
+          "debut": "2026-10-26T09:00",
+          "fin": "2026-10-26T17:00"
+        }
+      },
+      "avertissements": [],
+      "erreur": null,
+      "ms": 0,
+      "detection": true,
+      "champs": {
+        "sujet": true,
+        "participants": true,
+        "duree": true,
+        "dates": true
+      }
+    }
+  ],
+  "reponses": [
+    {
+      "id": "R01",
+      "attendu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "obtenu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R02",
+      "attendu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "obtenu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R03",
+      "attendu": {
+        "type": "refus",
+        "fenetre": null
+      },
+      "obtenu": {
+        "type": "refus",
+        "fenetre": null
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R04",
+      "attendu": {
+        "type": "deplacement",
+        "fenetre": {
+          "debut": "2026-10-21T09:00",
+          "fin": "2026-10-21T12:00"
+        }
+      },
+      "obtenu": {
+        "type": "deplacement",
+        "fenetre": {
+          "debut": "2026-10-21T09:00",
+          "fin": "2026-10-21T12:00"
+        }
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R05",
+      "attendu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "obtenu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R06",
+      "attendu": {
+        "type": "deplacement",
+        "fenetre": {
+          "debut": "2026-10-22T12:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "obtenu": {
+        "type": "deplacement",
+        "fenetre": {
+          "debut": "2026-10-22T12:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R07",
+      "attendu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "obtenu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R08",
+      "attendu": {
+        "type": "refus",
+        "fenetre": null
+      },
+      "obtenu": {
+        "type": "refus",
+        "fenetre": null
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R09",
+      "attendu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "obtenu": {
+        "type": "acceptation",
+        "fenetre": null
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    },
+    {
+      "id": "R10",
+      "attendu": {
+        "type": "deplacement",
+        "fenetre": {
+          "debut": "2026-10-22T15:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "obtenu": {
+        "type": "deplacement",
+        "fenetre": {
+          "debut": "2026-10-22T15:00",
+          "fin": "2026-10-22T17:00"
+        }
+      },
+      "erreur": null,
+      "ms": 0,
+      "correct": true
+    }
+  ]
+}

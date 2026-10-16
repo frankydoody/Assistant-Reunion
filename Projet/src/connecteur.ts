@@ -15,6 +15,7 @@ export interface Connecteur {
   // Courriels
   proprietaire(): string; // adresse de la boîte surveillée
   nouveauxCourriels(): Promise<CourrielRecu[]>; // pas encore traités, du plus ancien au plus récent
+  courriels(): Promise<{ courriel: CourrielRecu; traite: boolean }[]>; // toute la boîte, du plus récent au plus ancien
   marquerTraite(id: string): Promise<void>;
   envoyer(courriel: CourrielEnvoye): Promise<void>;
   envois(): Promise<CourrielEnvoye[]>;

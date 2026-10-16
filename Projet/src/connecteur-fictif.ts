@@ -42,6 +42,12 @@ export class ConnecteurFictif implements Connecteur {
       .map((c) => structuredClone(c));
   }
 
+  async courriels(): Promise<{ courriel: CourrielRecu; traite: boolean }[]> {
+    return this.boite
+      .map((c) => ({ courriel: structuredClone(c), traite: this.traites.has(c.id) }))
+      .sort((a, b) => b.courriel.date.localeCompare(a.courriel.date));
+  }
+
   async marquerTraite(id: string): Promise<void> {
     this.traites.add(id);
   }

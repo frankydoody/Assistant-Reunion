@@ -1,6 +1,6 @@
 {
   "name": "inf5114-assistant-reunions",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Assistant IA de planification de réunions pour PME (projet INF 5114)",
   "type": "module",
@@ -8,21 +8,30 @@
     "node": ">=20"
   },
   "scripts": {
-    "demarrer": "tsx src/serveur.ts",
+    "demarrer": "vite build && tsx src/serveur.ts",
+    "construire": "vite build",
+    "serveur": "tsx src/serveur.ts",
     "dev": "tsx watch src/serveur.ts",
+    "dev:web": "vite",
     "simuler": "tsx src/simuler.ts",
     "evaluer-ia": "tsx src/evaluer-ia.ts",
     "verifier-donnees": "tsx src/verifier-donnees.ts",
     "tester-creneaux": "tsx src/tester-creneaux.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.web.json"
   },
   "devDependencies": {
     "@types/express": "^4.17.25",
     "@types/node": "^20.14.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "tsx": "^4.19.0",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "vite": "^5.4.11"
   },
   "dependencies": {
-    "express": "^4.22.3"
+    "express": "^4.22.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

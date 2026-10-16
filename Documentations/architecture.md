@@ -71,7 +71,7 @@ Règles principales :
 |---|---|---|
 | GET | `/api/sante` | État du serveur, IA et connecteur utilisés |
 | GET | `/api/etat` | Utilisateurs, préférences et réunions |
-| POST | `/api/courriels/traiter` | Lire les nouveaux courriels de la boîte |
+| POST | `/api/courriels/traiter` | Lancer la lecture des nouveaux courriels (en arrière-plan; progression dans `/api/etat`) |
 | GET | `/api/reunions/:id` | Détail d'une réunion, avec son historique |
 | POST | `/api/reunions/:id/prioritaire` | Choisir la réunion prioritaire d'un groupe en double |
 | POST | `/api/reunions/:id/confirmer` | Confirmer : `{ "modeSuivi": "automatique" \| "manuel", "debut"?: "AAAA-MM-JJTHH:MM" }` |
@@ -81,20 +81,35 @@ Règles principales :
 | PUT | `/api/utilisateurs/:courriel/preferences` | Modifier la configuration d'un utilisateur |
 | GET | `/api/calendriers` | Calendriers de l'équipe |
 | GET | `/api/envois` | Courriels envoyés par l'assistant |
-| GET | `/api/simulation/reponses` | Réponses fictives de participants disponibles |
-| POST | `/api/simulation/reponses/:id` | Déposer une réponse fictive dans la boîte et la traiter |
-| POST | `/api/simulation/reinitialiser` | Remettre les données fictives à leur état initial |
+| GET | `/api/demo/reponses` | Réponses fictives de participants disponibles (mode démo) |
+| POST | `/api/demo/reponses/:id` | Déposer une réponse fictive dans la boîte et la traiter |
+| POST | `/api/demo/reinitialiser` | Remettre la démo à son état initial et relire la boîte |
 
 Les erreurs sont renvoyées en JSON (`{ "erreur": "..." }`) avec le code 400 (requête invalide), 404 (introuvable) ou 409 (action impossible dans l'état actuel).
 
-## 5. Tableau de bord prévu
+## 5. Tableau de bord
 
-Une page web servie par le même serveur (dossier `public/`), en quatre écrans :
+Application React (dossier `web/`), construite par Vite dans `public/` et servie par le même serveur Express. Elle est **installable** (application web progressive : manifeste et service worker) : dans Chrome ou Edge, elle s'ouvre dans sa propre fenêtre, comme un logiciel.
 
-1. **À traiter :** demandes à confirmer (avec le choix du mode de suivi), groupes de créneaux en double, dates à confirmer et interventions après un refus.
-2. **Réunions :** réunions envoyées, réponses des participants et historique.
-3. **Calendrier :** semaine de l'équipe, avec les réunions planifiées par l'assistant.
-4. **Configuration et simulation :** préférences de chaque utilisateur, réponses fictives à déposer, réinitialisation.
+Parcours :
+
+1. **Connexion :** l'utilisateur connecte son service de courriel et de calendrier (Google ou Microsoft, prévus) ou choisit la **démo sans compte**. La démo charge la PME fictive et lance aussitôt la lecture de la boîte.
+2. **À traiter :** demandes à confirmer (avec le choix du suivi manuel ou automatique), groupes de créneaux en double, dates à vérifier et réponses à régler après un refus. La progression de la lecture s'affiche en direct.
+3. **Réunions :** réunions envoyées, réponses des participants, détail avec historique, déplacement et changement de suivi.
+4. **Calendrier :** semaine de l'équipe, calendriers à afficher au choix, réunions de l'assistant et propositions à confirmer.
+5. **Boîte de réception :** courriels lus (et ce que l'assistant en a fait) et courriels envoyés en votre nom.
+6. **Démo : réponses :** en mode démo, déclencher les réponses fictives des participants pour voir l'assistant réagir.
+7. **Paramètres :** configuration de chaque utilisateur, installation, recommencer la démo.
+
+Choix d'interface :
+
+- **Navigation par l'adresse** (`#/reunions/R-M02`) : le bouton Précédent, le rechargement de la page et les favoris fonctionnent sur chaque écran.
+- **Couleurs :** bleu principal, rouge, jaune et vert pour les états, gris neutres, police du système (Segoe UI ou Roboto). Logo original; aucun logo ni élément graphique de Google ou de Microsoft.
+- **Accessibilité :** lien « Aller au contenu », états annoncés aux lecteurs d'écran, focus visible, animations désactivées si le système le demande.
+- **Petits écrans :** le menu passe en haut et défile horizontalement; aucune page ne déborde.
+- **Une action à la fois :** le serveur exécute les actions de l'utilisateur une à la fois, entre deux courriels analysés, pour éviter qu'une confirmation et une analyse modifient la même réunion en même temps.
+
+Routes ajoutées pour le tableau de bord : `GET /api/session`, `POST /api/session/demo`, `POST /api/session/deconnexion`, `GET /api/courriels`, `GET /api/demo/reponses`, `POST /api/demo/reponses/:id` et `POST /api/demo/reinitialiser` (les routes `/api/simulation/...` sont remplacées par `/api/demo/...`). Sans session, les autres routes répondent 401.
 
 ## 6. Limites connues
 
@@ -102,3 +117,5 @@ Une page web servie par le même serveur (dossier `public/`), en quatre écrans 
 - Un refus n'exclut que le créneau refusé. Si un participant refuse parce qu'il est absent toute la journée, l'assistant peut proposer un autre moment le même jour.
 - Si le moment proposé par un participant n'a aucune place, le suivi automatique se rabat sur les dates de la demande d'origine, qui peuvent ne pas lui convenir.
 - Les préférences modifiées s'appliquent aux propositions suivantes; elles ne déplacent pas les réunions déjà proposées.
+- Les connecteurs Google et Microsoft ne sont pas réalisés : seul le mode démo fonctionne.
+- Une seule session à la fois : l'application est pensée pour un poste local.

@@ -5,6 +5,9 @@ node_modules/
 *.log
 dist/
 
+# Tableau de bord construit par Vite (npm run construire)
+Projet/public/
+
 # Évaluations faites avec l'IA simulée (sans intérêt pour le rapport)
 resultats/evaluation-simulee-*.json
 
