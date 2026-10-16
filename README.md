@@ -1,6 +1,6 @@
 # INF 5114 — Assistant de planification de réunions pour PME
 
-> Projet en cours : données fictives et squelette en place, IA à venir.
+> Projet en cours : backend complet en mode fictif; tableau de bord et essais avec Gemini à venir.
 
 Projet universitaire (INF 5114), 100 % autonome : l'assistant surveille les courriels entrants d'un utilisateur, détecte avec Gemini ceux qui demandent une réunion, trouve un créneau libre dans les calendriers de la PME, ajoute le rendez-vous et envoie l'invitation à tous les participants.
 
@@ -42,9 +42,10 @@ Tout est fictif : une boîte de réception de 30 courriels (20 demandes de réun
 
 ## Structure
 
-- `Documentations/` — livrables du cours et `journal-de-bord.md`
+- `Documentations/` — livrables du cours, `journal-de-bord.md` et `architecture.md`
 - `Projet/src/` — code source (Node.js, TypeScript)
-- `Projet/donnees/` — données fictives (boîte de réception et calendriers)
+- `Projet/donnees/` — données fictives : boîte de réception, calendriers et réponses de participants
+- `Projet/resultats/` — résultats des évaluations de Gemini
 
 ## Démarrage
 
@@ -53,5 +54,20 @@ Prérequis : Node.js 20 ou plus récent.
 ```
 cd Projet
 npm install
-npm run verifier-donnees
+copy .env.example .env      (puis ajouter la clé Gemini dans .env)
+npm run demarrer
 ```
+
+Sans clé Gemini, l'application utilise une **IA simulée** qui renvoie les résultats attendus des données fictives. Elle sert à tester le reste de l'application, pas à mesurer Gemini.
+
+| Commande | Rôle |
+|---|---|
+| `npm run demarrer` | Démarre le serveur sur http://localhost:3100 |
+| `npm run dev` | Même chose, avec redémarrage à chaque modification |
+| `npm run simuler` | Scénario complet : lecture des courriels, conflits, confirmations, réponses, replanifications |
+| `npm run evaluer-ia` | Mesure Gemini sur les 30 courriels et les 10 réponses (détection, extraction, temps) |
+| `npm run verifier-donnees` | Vérifie la cohérence des données fictives |
+| `npm run tester-creneaux` | Teste la recherche de créneaux seule |
+| `npm run typecheck` | Vérifie les types TypeScript |
+
+L'architecture, le cycle de vie d'une réunion et l'API sont décrits dans `Documentations/architecture.md`.

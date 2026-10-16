@@ -21,6 +21,7 @@ export interface Evenement {
   titre: string;
   debut: string;
   fin: string;
+  reunionId?: string; // présent si l'événement a été créé par l'assistant
 }
 
 export interface Calendriers {
@@ -46,17 +47,35 @@ export interface Attendu {
   fenetre?: Fenetre | null; // null : aucune contrainte de date dans le courriel
 }
 
-export interface Courriel {
+// Un courriel tel que l'assistant le reçoit.
+export interface CourrielRecu {
   id: string;
   de: string;
   a: string[];
   date: string;
   objet: string;
   corps: string;
+  enReponseA?: string; // identifiant de l'invitation à laquelle ce courriel répond
+}
+
+// Un courriel des données fictives, avec le résultat attendu de l'IA.
+export interface Courriel extends CourrielRecu {
   attendu: Attendu;
 }
 
 export interface BoiteReception {
   proprietaire: string;
   courriels: Courriel[];
+}
+
+export type TypeReponse = "acceptation" | "refus" | "deplacement";
+
+// Réponse fictive d'un participant à une invitation, avec le résultat attendu.
+export interface ReponseTest {
+  id: string;
+  demande: string; // identifiant du courriel de demande de réunion
+  de: string;
+  date: string;
+  corps: string;
+  attendu: { type: TypeReponse; fenetre: Fenetre | null };
 }

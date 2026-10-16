@@ -2,6 +2,7 @@
 // Les dates sont des chaînes locales AAAA-MM-JJTHH:MM; les calculs se font en
 // minutes pour ne dépendre d'aucun fuseau horaire.
 
+import { versMinutes, versTexte } from "./dates";
 import type { Calendriers, Fenetre } from "./types";
 
 export const DUREE_PAR_DEFAUT_MINUTES = 30; // si le courriel ne précise pas la durée
@@ -25,17 +26,6 @@ export interface DemandeCreneau {
 export interface ReunionPlacee {
   participants: string[];
   creneau: Creneau;
-}
-
-function versMinutes(texte: string): number {
-  const [date, heure] = texte.split("T");
-  const [annee, mois, jour] = date.split("-").map(Number);
-  const [h, m] = heure.split(":").map(Number);
-  return Date.UTC(annee, mois - 1, jour, h, m) / 60000;
-}
-
-function versTexte(minutes: number): string {
-  return new Date(minutes * 60000).toISOString().slice(0, 16);
 }
 
 function minutesDuJour(heure: string): number {

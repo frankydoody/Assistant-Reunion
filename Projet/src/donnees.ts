@@ -3,7 +3,8 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { BoiteReception, Calendriers } from "./types";
+import { estDateValide } from "./dates";
+import type { BoiteReception, Calendriers, ReponseTest } from "./types";
 
 const DOSSIER_DONNEES = join(dirname(fileURLToPath(import.meta.url)), "..", "donnees");
 
@@ -19,11 +20,38 @@ export function chargerBoiteReception(): BoiteReception {
   return lireJson<BoiteReception>("boite-reception.json");
 }
 
-const FORMAT_DATE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/;
-
-function dateValide(valeur: string): boolean {
-  return FORMAT_DATE.test(valeur) && !Number.isNaN(new Date(valeur).getTime());
+export function chargerReponses(): ReponseTest[] {
+  return lireJson<{ reponses: ReponseTest[] }>("reponses.json").reponses;
 }
+
+// Vérifie les réponses fictives de participants : chacune doit répondre à une
+// demande de réunion existante, venir d'un de ses participants (autre que le
+// propriétaire de la boîte) et avoir un résultat attendu valide.
+export function validerReponses(boite: BoiteReception, reponses: ReponseTest[]): string[] {
+  const erreurs: string[] = [];
+  const demandes = new Map(boite.courriels.filter((c) => c.attendu.estReunion).map((c) => [c.id, c]));
+  const ids = new Set<string>();
+  for (const r of reponses) {
+    if (ids.has(r.id)) erreurs.push(`Réponse ${r.id} : identifiant en double`);
+    ids.add(r.id);
+    const demande = demandes.get(r.demande);
+    if (!demande) {
+      erreurs.push(`Réponse ${r.id} : demande de réunion inconnue ${r.demande}`);
+      continue;
+    }
+    if (!(demande.attendu.participants ?? []).includes(r.de) || r.de === boite.proprietaire) {
+      erreurs.push(`Réponse ${r.id} : ${r.de} n'est pas un participant invité de ${r.demande}`);
+    }
+    if (!dateValide(r.date)) erreurs.push(`Réponse ${r.id} : date invalide`);
+    if (!["acceptation", "refus", "deplacement"].includes(r.attendu.type)) erreurs.push(`Réponse ${r.id} : type invalide`);
+    const f = r.attendu.fenetre;
+    if (f && (!dateValide(f.debut) || !dateValide(f.fin) || f.debut >= f.fin)) erreurs.push(`Réponse ${r.id} : fenêtre invalide`);
+    if (f && r.attendu.type !== "deplacement") erreurs.push(`Réponse ${r.id} : seule une demande de déplacement a une fenêtre`);
+  }
+  return erreurs;
+}
+
+const dateValide = estDateValide;
 
 // Retourne la liste des erreurs trouvées dans les données (vide si tout est correct).
 export function validerDonnees(calendriers: Calendriers, boite: BoiteReception): string[] {
